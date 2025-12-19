@@ -1,72 +1,86 @@
 <!doctype html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Website</title>
-  <meta name="description" content="A simple starter HTML page." />
+  <title>מצא את האריה</title>
   <style>
-    :root { color-scheme: light dark; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      line-height: 1.5;
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+      text-align:center;
+      background:#f6f7fb;
+      padding:24px;
     }
-    header, main, footer {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 24px;
+    h1{ font-size:32px; margin: 10px 0 6px; }
+    p{ font-size:22px; margin: 0 0 18px; }
+    .wrap{
+      display:flex;
+      justify-content:center;
+      gap:24px;
+      flex-wrap:wrap;
+      margin-top:10px;
     }
-    header {
-      border-bottom: 1px solid rgba(127,127,127,.35);
+    button.pic{
+      border:4px solid #ddd;
+      border-radius:18px;
+      background:white;
+      padding:12px;
+      cursor:pointer;
+      width:220px;
+      transition: transform .1s, border-color .2s;
     }
-    .card {
-      border: 1px solid rgba(127,127,127,.35);
-      border-radius: 14px;
-      padding: 18px;
-      margin-top: 16px;
+    button.pic:hover{ transform: scale(1.03); border-color:#999; }
+    img{
+      width:180px;
+      height:180px;
+      object-fit:contain;
+      display:block;
+      margin:0 auto 8px;
     }
-    a { color: inherit; }
-    button {
-      border: 0;
-      border-radius: 12px;
-      padding: 10px 14px;
-      cursor: pointer;
-      background: rgba(127,127,127,.25);
+    .label{ font-size:22px; font-weight:bold; }
+    #msg{
+      margin-top:18px;
+      font-size:28px;
+      font-weight:bold;
+      min-height: 40px;
     }
-    button:hover { background: rgba(127,127,127,.35); }
+    .good{ color:#0a8a2a; }
+    .bad{ color:#c21b1b; }
   </style>
 </head>
-
 <body>
-  <header>
-    <h1>Welcome 👋</h1>
-    <p>This is your starter <code>index.html</code>.</p>
-  </header>
+  <h1>מצא את האריה 🦁</h1>
+  <p>לחץ על התמונה של האריה</p>
 
-  <main>
-    <section class="card">
-      <h2>About</h2>
-      <p>Edit this section to describe your site.</p>
-    </section>
+  <div class="wrap">
+    <button class="pic" id="lionBtn" aria-label="אריה">
+      <img src="lion.png" alt="אריה" />
+      <div class="label">אריה</div>
+    </button>
 
-    <section class="card">
-      <h2>Contact</h2>
-      <p>
-        Email: <a href="mailto:you@example.com">you@example.com</a>
-      </p>
-      <button id="helloBtn">Say hello</button>
-    </section>
-  </main>
+    <button class="pic" id="fishBtn" aria-label="דג">
+      <img src="fish.png" alt="דג" />
+      <div class="label">דג</div>
+    </button>
+  </div>
 
-  <footer>
-    <small>© <span id="year"></span> My Website</small>
-  </footer>
+  <div id="msg"></div>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-    document.getElementById("helloBtn").addEventListener("click", () => {
-      alert("Hello!");
+    const msg = document.getElementById("msg");
+
+    function show(text, ok){
+      msg.textContent = text;
+      msg.className = ok ? "good" : "bad";
+    }
+
+    document.getElementById("lionBtn").addEventListener("click", () => {
+      show("כל הכבוד! 🥳 זה אריה!", true);
+    });
+
+    document.getElementById("fishBtn").addEventListener("click", () => {
+      show("נסה שוב 🙂", false);
     });
   </script>
 </body>
