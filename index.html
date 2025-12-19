@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Website</title>
+  <meta name="description" content="A simple starter HTML page." />
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.5;
+    }
+    header, main, footer {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    header {
+      border-bottom: 1px solid rgba(127,127,127,.35);
+    }
+    .card {
+      border: 1px solid rgba(127,127,127,.35);
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 16px;
+    }
+    a { color: inherit; }
+    button {
+      border: 0;
+      border-radius: 12px;
+      padding: 10px 14px;
+      cursor: pointer;
+      background: rgba(127,127,127,.25);
+    }
+    button:hover { background: rgba(127,127,127,.35); }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Welcome 👋</h1>
+    <p>This is your starter <code>index.html</code>.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>About</h2>
+      <p>Edit this section to describe your site.</p>
+    </section>
+
+    <section class="card">
+      <h2>Contact</h2>
+      <p>
+        Email: <a href="mailto:you@example.com">you@example.com</a>
+      </p>
+      <button id="helloBtn">Say hello</button>
+    </section>
+  </main>
+
+  <footer>
+    <small>© <span id="year"></span> My Website</small>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("helloBtn").addEventListener("click", () => {
+      alert("Hello!");
+    });
+  </script>
+</body>
+</html>
